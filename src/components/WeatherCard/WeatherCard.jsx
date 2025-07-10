@@ -1,6 +1,8 @@
 function WeatherCard() {
-    return 
-        <>WEATHER</>
+    return <section className="weather-card">
+        <p className="weather-card__temp"></p>
+    </section>
+    
     
 }
 
