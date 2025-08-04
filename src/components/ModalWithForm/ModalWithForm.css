@@ -23,12 +23,13 @@
   position: absolute;
   top: 20px;
   right: 28px;
+  background-image:  transparent url(../assets/close-button.png) center no-repeat;
 }
 
 .modal__content {
   background-color: #fff;
   position: relative;
-  padding: 28px 28px 36px;
+  /* padding: 28px 28px 36px; */
   max-width: 496px;
   box-sizing: border-box;
   width: 100%;

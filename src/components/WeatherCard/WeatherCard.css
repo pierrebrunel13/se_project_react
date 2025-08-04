@@ -15,7 +15,7 @@
   left: 16px;
 }
 
-.wheather-card__image {
+.weather-card__image {
   object-fit: cover;
   object-position: right top;
   width: 100%;

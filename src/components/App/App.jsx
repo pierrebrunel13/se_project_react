@@ -7,13 +7,14 @@ import Main from "../Main/Main";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
+import Footer from "../Footer/Footer";
 
 function App() {
   const [weatherData, setWeatherData] = useState({ 
     type: "", 
     temp: { F: 999} , 
     city: "",});
-  const [activeModal, setActiveModal] = useState("preview");
+  const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
 
   const handleCardClick = (card) => {
@@ -75,6 +76,7 @@ function App() {
         </fieldset>
       </ModalWithForm>
       <ItemModal activeModal={activeModal} card={selectedCard} onClose={closeActiveModal} />
+      <Footer/>
     </div>
   );
 }
