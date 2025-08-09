@@ -22,3 +22,7 @@
   align-items: center;
 }
 
+.modal__footer{
+  padding: 32px;
+}
+
