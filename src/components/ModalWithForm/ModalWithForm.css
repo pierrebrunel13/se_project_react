@@ -28,17 +28,26 @@
   position: absolute;
   top: 20px;
   right: 28px;
+  border: none;
+  height: 20px;
+  width: 20px;
+  background-color: transparent;
+  padding: 0;
 }
 
 .modal__content {
   background-color: #fff;
   position: relative;
-  /* padding: 28px 28px 36px; */
+  padding: 28px 28px 36px;
   max-width: 496px;
   box-sizing: border-box;
   width: 100%;
-  border-radius: 2px;
+  border-radius: 20px;
   flex-direction: column;
+}
+
+.modal__label {
+  margin-top: 24px;
 }
 
 .modal__form {
@@ -49,8 +58,9 @@
 
 .modal__input {
   display: block;
-   border-bottom: 2px solid #ccc;
-   max-width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+  width: 100%;
 }
 
 .modal__radio-buttons {
@@ -60,4 +70,13 @@
   flex-direction: column;
 }
 
-
+.modal__submit {
+  height: 36px;
+  width: 124px;
+  border-radius: 4px;
+  background-color: #000;
+  color: #fff;
+  margin-top: 32px;
+  border: none;
+  padding: 8px 16px;
+}
