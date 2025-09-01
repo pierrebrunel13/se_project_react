@@ -5,7 +5,7 @@ import ItemCard from "../ItemCard/ItemCard";
 
  
 
-function Main({ weatherData, clothingItems, handleCardClick }) {
+function Main({ weatherData, clothingItems, handleCardClick,}) {
   return (
     <main>
       

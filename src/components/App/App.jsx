@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 
 import "./App.css";
-// import { coordinates, APIkey } from "../../utils/constants";
 import { coordinates, APIkey, defaultClothingItems } from "../../utils/constants";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
-// import { defaultClothingItems } from "../../utils/constants";
 import Footer from "../Footer/Footer";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -21,6 +20,12 @@ function App() {
   const [clothingItems, setClothingItems] = useState(defaultClothingItems);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
+  const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState('F');
+
+  const handleToggleSwitchChange = ()=>{
+    setCurrentTemperatureUnit(currentTemperatureUnit === "F"? "C": "F");
+
+  };
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -47,6 +52,7 @@ function App() {
   }, []);
 
   return (
+    <CurrentTemperatureUnitContext.Provider value={{currentTemperatureUnit, handleToggleSwitchChange}}>
     <div className="page">
       <div className="page__content">
         <Header handleAddClick={handleAddClick} weatherData={weatherData} />
@@ -104,9 +110,12 @@ function App() {
           </label>
         </fieldset>
       </ModalWithForm>
-      <ItemModal activeModal={activeModal} card={selectedCard} onClose={closeActiveModal} />
+      <ItemModal activeModal={activeModal} 
+      card={selectedCard} 
+      onClose={closeActiveModal} />
       <Footer />
     </div>
+    </CurrentTemperatureUnitContext.Provider>
   );
 }
 
