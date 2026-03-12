@@ -86,7 +86,10 @@ function App() {
             />
             <Route
               path="/profile"
-              element={<Profile clothingItems={clothingItems} handleAddClick={handleAddClick} />}
+              element={<Profile clothingItems={clothingItems} 
+              // handleAddClick={handleAddClick} 
+              handleCardClick={handleCardClick} 
+              />}
             />
           </Routes>
         </div>
