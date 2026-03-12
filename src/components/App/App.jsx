@@ -10,8 +10,7 @@ import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import Footer from "../Footer/Footer";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
-
-
+import Profile from "../Profile/Profile";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -27,7 +26,6 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
 
-
   const handleToggleSwitchChange = () => {
     setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
   };
@@ -42,18 +40,14 @@ function App() {
   };
 
   const onAddItem = (inputValues) => {
-    // call the fetch function
-    // .then((data) => {}) includes all the stuff below
-    const newCardData = { 
-      name: inputValues.name, 
+    const newCardData = {
+      name: inputValues.name,
       link: inputValues.link,
       weather: inputValues.weatherType,
     };
-    // dont use newCardData
-    // the Id will be include in the response data
+
     setClothingItems([...clothingItems, newCardData]);
     closeActiveModal();
-    // .catch()
   };
 
   const closeActiveModal = () => {
@@ -78,20 +72,23 @@ function App() {
       <div className="page">
         <div className="page__content">
           <Header handleAddClick={handleAddClick} weatherData={weatherData} />
-          
+
           <Routes>
-            <Route path="/" element={
-              <Main
-            weatherData={weatherData}
-            handleCardClick={handleCardClick}
-            clothingItems={clothingItems}
-          />
-          }/>
-            <Route path="/profile" element={<p>PROFILE</p>}/>
+            <Route
+              path="/"
+              element={
+                <Main
+                  weatherData={weatherData}
+                  handleCardClick={handleCardClick}
+                  clothingItems={clothingItems}
+                />
+              }
+            />
+            <Route
+              path="/profile"
+              element={<Profile clothingItems={clothingItems} handleAddClick={handleAddClick} />}
+            />
           </Routes>
-          
-
-
         </div>
         <AddItemModal
           isOpen={activeModal === "add-garment"}
