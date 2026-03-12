@@ -1,4 +1,4 @@
-.card{
+.card {
     width: 323px;
     position: relative;
     display: flex;
@@ -6,12 +6,12 @@
 
 }
 
-.card__name{
+.card__name {
     position: absolute;
     top: 15px;
     margin: 0;
 }
 
-.card__image{
+.card__image {
     width: 100%;
 }

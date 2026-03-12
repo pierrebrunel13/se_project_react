@@ -1,0 +1,16 @@
+{
+  "items": [
+    {
+      "_id": "1",
+      "name": "Jacket",
+      "weather": "cold",
+      "imageUrl": "https://images.unsplash.com/photo-1520975922284-6f1d1b33c2d6"
+    },
+    {
+      "_id": "2",
+      "name": "T-shirt",
+      "weather": "hot",
+      "imageUrl": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab"
+    }
+  ]
+}

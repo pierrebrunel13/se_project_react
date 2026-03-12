@@ -9,5 +9,5 @@ export function useForm(defaultValue) {
     
   }
 
-  return {values, setValues, handleChange};
+  return { values, setValues, handleChange };
 }
