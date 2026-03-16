@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import { coordinates, apiKey } from "../../utils/constants";
 
-// ➕ ADDED (connect to mock server API)
+
 import { getItems, addItem, deleteItem } from "../../utils/api";
 
 import Header from "../Header/Header";
@@ -25,7 +25,7 @@ function App() {
     isDay: false,
   });
 
-  const [clothingItems, setClothingItems] = useState([]); // ✅ CHANGED (was defaultClothingItems)
+  const [clothingItems, setClothingItems] = useState([]);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
@@ -43,17 +43,17 @@ function App() {
     setActiveModal("add-garment");
   };
 
-  // ➕ CHANGED (now sends POST request to server)
+  
   const onAddItem = (inputValues) => {
     const newItem = {
       name: inputValues.name,
-      imageUrl: inputValues.link, // ✅ CHANGED (server expects imageUrl)
+      imageUrl: inputValues.link, 
       weather: inputValues.weatherType,
     };
 
-    addItem(newItem) // ➕ ADDED
+    addItem(newItem) 
       .then((item) => {
-        setClothingItems((prevItems) => [item, ...prevItems]); // ✅ CHANGED
+        setClothingItems((prevItems) => [item, ...prevItems]); 
         closeActiveModal();
       })
       .catch((error) => {
@@ -65,7 +65,7 @@ function App() {
     setActiveModal("");
   };
 
-  // WEATHER API (already correct)
+  
   useEffect(() => {
     getWeather(coordinates, apiKey)
       .then((data) => {
@@ -77,7 +77,7 @@ function App() {
       });
   }, []);
 
-  // ➕ ADDED (GET clothing items from mock server)
+  
   useEffect(() => {
     getItems()
       .then((data) => {
@@ -88,7 +88,7 @@ function App() {
       });
   }, []);
 
-  // ➕ ADDED (delete clothing item)
+  
   const handleDeleteItem = (id) => {
     deleteItem(id)
       .then(() => {
@@ -126,7 +126,7 @@ function App() {
                 <Profile
                   clothingItems={clothingItems}
                   handleCardClick={handleCardClick}
-                  handleAddClick={handleAddClick} // ➕ ADDED
+                  handleAddClick={handleAddClick} 
                 />
               }
             />
@@ -143,7 +143,7 @@ function App() {
           activeModal={activeModal}
           card={selectedCard}
           onClose={closeActiveModal}
-          onDelete={handleDeleteItem} // ➕ ADDED
+          onDelete={handleDeleteItem} 
         />
 
         <Footer />
